@@ -1,10 +1,11 @@
-require 'sinatra'
+require "sinatra"
 
 get '/' do
-  nombre = params[:nombre]
-  if nombre
-    "<h1>Hola #{nombre}!</h1>"
+  unless params[:nombre]
+    "¡Hola desconocido!"
   else
-    "<h1>Hola desconocido!</h1>"
+    <<-HTML
+      <h1>"¡Hola #{params[:nombre]}!"</h1>
+    HTML
   end
 end
