@@ -1,6 +1,10 @@
 require 'sinatra'
 
 get '/' do
-  @name = params['nombre']
-  erb :saludo
+  nombre = params[:nombre]
+  if nombre
+    "<h1>Hola #{nombre}!</h1>"
+  else
+    "<h1>Hola desconocido!</h1>"
+  end
 end
